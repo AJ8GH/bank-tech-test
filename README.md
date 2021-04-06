@@ -85,6 +85,13 @@ I want to be able to request bank-statements
 
 Input | Output
 ------|--------
+a     | b
+
+### Classes
+
+Object | Message
+-------|---------
+a      | b
 
 ### Diagrams
 
