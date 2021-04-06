@@ -18,5 +18,10 @@ describe('Account', () => {
       account.deposit(100);
       expect(account.balance).toBe(100)
     });
+
+    it('adds the correct amount to balance', () => {
+      account.deposit(55);
+      expect(account.balance).toBe(55)
+    });
   });
 });

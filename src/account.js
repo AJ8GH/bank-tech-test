@@ -3,8 +3,8 @@ class Account {
     this.balance = 0
   }
 
-  deposit() {
-    this.balance += 100
+  deposit(amount) {
+    this.balance += amount
   }
 }
 
