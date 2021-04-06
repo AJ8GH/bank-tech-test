@@ -54,10 +54,32 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
+***table format***
+
+date       | credit  | debit      | balance
+-----------|---------|------------|--------
+14/01/2012 |         | 500.00     | 2500.00
+13/01/2012 | 2000.00 |            | 3000.00
+10/01/2012 | 1000.00 |            | 1000.00
+
 Planning
 --------
 
 ### User stories
+
+```
+As a customer,
+So that I can keep my money safe,
+I want to be able to make a deposit.
+
+As a customer,
+So that I can access my money,
+I want to be able to make a withdrawal.
+
+As a customer,
+So that I can keep track of my banking activities
+I want to be able to request bank-statements
+```
 
 ### Input / Output
 
