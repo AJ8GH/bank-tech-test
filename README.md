@@ -100,4 +100,19 @@ a      | b
 
 ### Diagrams
 
+```flow
+alias u= "User"
+alias a= "Account"
+alias t= "Transaction"
+
+u->a: "deposit(100)"
+a->t: "new Transaction(100)"
+t->t: "new Transaction(amount = 100, date = today)"
+t-->a: "transaction"
+a->a: "this.transactions.push(transaction)"
+a->a: "this.balance += 100"
+```
+
+
+
 ### User stories

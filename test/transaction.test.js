@@ -5,8 +5,8 @@ describe('Transaction', () => {
 
   describe('#amount', () => {
     it('returns the amount of the transaction', () => {
-      const transaction = new Transaction(100)
-      assert.strictEqual(transaction.amount, 100)
+      const transaction = new Transaction(100);
+      assert.strictEqual(transaction.amount, 100);
     });
   });
 });
