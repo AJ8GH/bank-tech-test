@@ -1,27 +1,28 @@
-const Account = require('../src/account');
+const assert = require('assert')
 
 describe('Account', () => {
+  const Account = require('../src/account');
   let account;
 
   beforeEach(() => {
     account = new Account();
   });
 
-  describe('balance()', () => {
+  describe('#balance()', () => {
     it('is 0 by default', () => {
-      expect(account.balance).toBe(0);
+      assert.strictEqual(account.balance, 0);
     });
   });
 
-  describe('deposit()', () => {
+  describe('#deposit()', () => {
     it('adds amount to balance', () => {
       account.deposit(100);
-      expect(account.balance).toBe(100)
+      assert.strictEqual(account.balance, 100)
     });
 
     it('adds the correct amount to balance', () => {
       account.deposit(55);
-      expect(account.balance).toBe(55)
+      assert.strictEqual(account.balance, 55)
     });
   });
 });
