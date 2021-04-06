@@ -1,4 +1,5 @@
 const assert = require('assert')
+const MockDate = require('mockdate');
 
 describe('Account', () => {
   const Account = require('../lib/account');
@@ -41,6 +42,15 @@ describe('Account', () => {
 
       account.withdraw(100);
       assert.strictEqual(account.balance, 0)
+    });
+  });
+
+  describe('#print_statement()', () => {
+    const statement1 = "date | balance\n01/01/2021 | 0.00"
+    describe('with no transactions', () => {
+      it('prints the balance and date', () => {
+        assert.strictEqual(account.printStatement(), statement1)
+      });
     });
   });
 });
