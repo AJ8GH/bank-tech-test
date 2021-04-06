@@ -1,7 +1,7 @@
 const assert = require('assert')
 
 describe('Account', () => {
-  const Account = require('../src/account');
+  const Account = require('../lib/account');
   let account;
 
   beforeEach(() => {

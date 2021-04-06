@@ -1,6 +1,11 @@
 Bank tech test
 ==============
 
+[![AJ8GH](https://circleci.com/gh/AJ8GH/bank-tech-test.svg?style=shield)](https://app.circleci.com/pipelines/github/AJ8GH/bank-tech-test)
+[![AJ8GH](https://circleci.com/gh/AJ8GH/bank-tech-test.svg?style=svg)](https://app.circleci.com/pipelines/github/AJ8GH/bank-tech-test)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4dd8f783b6d062f73efc/maintainability)](https://codeclimate.com/github/AJ8GH/bank-tech-test/maintainability)
+
 Getting started
 ---------------
 
@@ -78,7 +83,7 @@ I want to be able to make a withdrawal.
 
 As a customer,
 So that I can keep track of my banking activities
-I want to be able to request bank-statements
+I want to be able to request bank-statements.
 ```
 
 ### Input / Output
