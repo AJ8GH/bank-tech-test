@@ -113,6 +113,4 @@ a->a: "this.transactions.push(transaction)"
 a->a: "this.balance += 100"
 ```
 
-
-
 ### User stories
