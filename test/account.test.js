@@ -25,4 +25,22 @@ describe('Account', () => {
       assert.strictEqual(account.balance, 55)
     });
   });
+
+  describe('#withdraw()', () => {
+    it('subtracts amount from balance', () => {
+      account.deposit(100);
+      assert.strictEqual(account.balance, 100)
+
+      account.withdraw(50);
+      assert.strictEqual(account.balance, 50)
+    });
+
+    it('subtracts correct amount from balance', () => {
+      account.deposit(100);
+      assert.strictEqual(account.balance, 100)
+
+      account.withdraw(100);
+      assert.strictEqual(account.balance, 0)
+    });
+  });
 });
