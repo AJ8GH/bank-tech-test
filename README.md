@@ -167,9 +167,9 @@ afterEach(() => { sinon.restore() })
 
 #### Code quality
 
-- CI: set up `circleCI` to run tests on each commit
-- Style: repo meets `JSstandard style` guidelines - enforced using ES lint with no outstanding offences
-- Maintainability: A grade from `Code Climate`
+- CI: set up `circleCI` to run tests on each commit: [Circle CI project link](https://app.circleci.com/pipelines/github/AJ8GH/bank-tech-test)
+- Style: repo meets `JavaScript Standard Style` guidelines - enforced using ES lint with no outstanding offences: [standardjs](https://standardjs.com/)
+- Maintainability: A grade from `Code Climate` - lowest possible level of technical debt: [CodeClimate project link](https://codeclimate.com/github/AJ8GH/bank-tech-test)
 
 #### Object Oriented Design
 
