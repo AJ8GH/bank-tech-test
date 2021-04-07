@@ -140,8 +140,6 @@ Design
 
 #### Testing
 
-![test-coverage](images/test-coverage.png)
-
 - TDD:
   - Emphasis on behaviour driven development
   - Automated feature tests
@@ -149,13 +147,13 @@ Design
   - Acceptance criteria met and edge cases covered
   - Red - Green - Commit - Refactor - Commit
 - Test Coverage: 100% (measured using `nyc` / `istanbul`)
-- Testing framework: `Mocha`
-- Mocks and stubs:
-  - Date mocked with `MockDate`
-  - `sinon` to stub functions in class depencies
-  - `sinon` to stub console.log
 
-*e.g.*
+![test-coverage](images/test-coverage.png)
+
+- Testing framework: `Mocha`
+- Mocking and stubbing:
+  - Date mocked with `MockDate`
+  - `sinon` to stub functions in class depencies and console.log
 
 ```js
 beforeEach(() => {
