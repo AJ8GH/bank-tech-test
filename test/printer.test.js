@@ -2,6 +2,7 @@ const sinon = require('sinon')
 const mockdate = require('mockdate')
 const Printer = require('../lib/printer')
 const Transaction = require('../lib/transaction')
+const assert = require('assert')
 
 describe('Printer', () => {
   let printer
@@ -9,27 +10,12 @@ describe('Printer', () => {
   beforeEach(() => {
     printer = new Printer()
     sinon.stub(console, 'log')
+    mockdate.set('02/02/2021')
   })
 
   afterEach(() => { sinon.restore() })
 
   xdescribe('#printStatement()', () => {
-    describe('with no transactions', () => {
-      it('prints the balance and date', () => {
-        const statement = 'date || balance\n01/01/2021 || £0.00'
-        mockdate.set('01/01/2021')
-        printer.printStatement([])
-        sinon.assert.calledWith(console.log, statement)
-      })
-
-      it('knows the correct date', () => {
-        const statement = 'date || balance\n02/02/2021 || £0.00'
-        mockdate.set('02/02/2021')
-        printer.printStatement([])
-        sinon.assert.calledWith(console.log, statement)
-      })
-    })
-
     describe('with 1 withdraw and 1 deposit', () => {
       it('prints the correct statement', () => {
         const statement = [
@@ -41,11 +27,23 @@ describe('Printer', () => {
         const transaction1 = new Transaction({ balance: '£500.00', credit: '£500.00'})
         const transaction2 = new Transaction({ balance: '£300.00', debit: '£200.00'})
 
-        mockdate.set('02/02/2021')
         printer.printStatement([transaction1, transaction2])
-
         sinon.assert.calledWith(console.log, statement)
       })
+    })
+  })
+
+  describe('#moneyFormat()', () => {
+    it('correctly formats 1', () => {
+      assert.strictEqual(printer.moneyFormat(1), '£1.00')
+    })
+
+    it('correctly formats 5025.789', () => {
+      assert.strictEqual(printer.moneyFormat(5025.79), '£5,025.79')
+    })
+
+    it('correctly formats 0.9', () => {
+      assert.strictEqual(printer.moneyFormat(0.9), '£0.90')
     })
   })
 })
