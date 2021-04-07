@@ -135,7 +135,7 @@ Design
   - public methods:
   - `printStatement`
 
-### Approach
+### Approach & design
 
 #### Testing
 
@@ -172,7 +172,7 @@ afterEach(() => { sinon.restore() })
 - Style: repo meets `JSstandard style` guidelines - enforced using ES lint with no outstanding offences
 - Maintainability: A grade from `Code Climate`
 
-#### Object Oriented Design
+#### Object Oriented Design
 
 - Focus on Single Responsibility Principle
 - Dependency injection in `account.js` to ensure code is easily extendable and mockable
