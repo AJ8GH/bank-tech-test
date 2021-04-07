@@ -9,7 +9,7 @@ describe('Transaction', () => {
       mockdate.set(date)
 
       const transaction = new Transaction(100)
-      assert.strictEqual(transaction.date, (new Date).toLocaleDateString())
+      assert.strictEqual(transaction.date, (new Date).toLocaleDateString('en-GB'))
     });
   });
 

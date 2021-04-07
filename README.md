@@ -124,7 +124,7 @@ Design
 
 - Testing:
   - TDD: code has been written test first, with an emphasis on behaviour driven development, using automated feature testsand isolated unit tests to ensure the criteria is met and edge cases covered.
-  - Test Coverage: 100%
+  - Test Coverage: 100% (measured using `nyc` / `istanbul`)
 
   ![test-coverage](images/test-coverage.png)
 
@@ -133,6 +133,8 @@ Design
     - Date mocked with `MockDate`
     - `sinon` to stub functions in class depencies
     - `sinon` to stub console.log
+
+- CI: set up circleCI to run tests on each commit
 
 *e.g.*
 
@@ -155,8 +157,6 @@ afterEach(() => { sinon.restore() })
   - Frequent commits with clear messages:
 
   ![git-log](images/git-log.png)
-
-- Note: the tests which stub console.log are working well on the local development machine but not in circleCI, so they are currently pending in the suite. To unpend and run the full suite, remove the `x` from the beginning describe blocks in `feature.test.js` and `printer.test.js`
 
 Specification
 -------------
