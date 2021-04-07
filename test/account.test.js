@@ -1,6 +1,5 @@
-const sinon = require('sinon')
-const assert = require('assert')
-const mockdate = require('mockdate');
+const sinon = require('sinon');
+const assert = require('assert');
 
 describe('Account', () => {
   const Account = require('../lib/account');
@@ -56,5 +55,10 @@ describe('Account', () => {
   });
 
   describe('#printStatement()', () => {
+    it('calls print function to printer', () => {
+      sinon.stub(account.printer, 'printStatement')
+      account.printStatement()
+      sinon.assert.calledOnce(account.printer.printStatement)
+    });
   });
 });
