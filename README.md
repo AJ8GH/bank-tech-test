@@ -59,6 +59,39 @@ To run without coverage stats:
 mocha
 ```
 
+### Usage example
+
+```shell
+> cd lib
+
+> node
+
+> .load ./account.js
+
+> account = new Account
+
+> account.deposit(100)
+
+> account.printStatement()
+date || credit || debit || balance
+07/04/2021 || £100.00 ||  || £100.00
+
+> account.deposit(2000)
+
+> account.printStatement()
+date || credit || debit || balance
+07/04/2021 || £2,000.00 ||  || £2,100.00
+07/04/2021 || £100.00 ||  || £100.00
+
+> account.withdraw(500)
+
+> account.printStatement()
+date || credit || debit || balance
+07/04/2021 ||  || £500.00 || £1,600.00
+07/04/2021 || £2,000.00 ||  || £2,100.00
+07/04/2021 || £100.00 ||  || £100.00
+```
+
 Design
 ------
 
@@ -89,18 +122,17 @@ Design
 
 ### Approach
 
-**Testing:**
+- Testing:
+  - TDD: code has been written test first, with an emphasis on behaviour driven development, using automated feature testsand isolated unit tests to ensure the criteria is met and edge cases covered.
+  - Test Coverage: 100%
 
-- TDD: code has been written test first, with an emphasis on behaviour driven development, using automated feature testsand isolated unit tests to ensure the criteria is met and edge cases covered.
-- Test Coverage: 100%
+  ![test-coverage](test-coverage.png)
 
-![test-coverage](test-coverage.png)
-
-- Testing framework: `Mocha`
-- Mocks and stubs:
-  - Date mocked with `MockDate`
-  - `sinon` to stub functions in class depencies
-  - `sinon` to stub console.log
+  - Testing framework: `Mocha`
+  - Mocks and stubs:
+    - Date mocked with `MockDate`
+    - `sinon` to stub functions in class depencies
+    - `sinon` to stub console.log
 
 *e.g.*
 
@@ -119,22 +151,17 @@ afterEach(() => { sinon.restore() })
   - Dependency injection in `account.js` to ensure code is easily extendable and mockable
   - 'private' functions are prefixed with an underscore
 
+- Git:
+  - Frequent commits with clear messages:
+
+  ![git-log](git-log.png)
+
 #### Assumptions
 
-Ambiguity                                    | Solution                                 | Why
----------------------------------------------|------------------------------------------|-------------
-Withdrawals when balance is 0                | Guard condition to prevent minus balance | Simplest solution, given the specification does not mention overdraft facility
-Print statement when no transactions         | Print 0 balance and current date         | Print statement should still give the account holder the information about their account
-
-### Structure
-
-### Possible extensions
-
-Usage examples
---------------
-
-- **Screenshots**
-- **Explanations**
+Ambiguity                                    | Solution                          | Why
+--------------------------------------|------------------------------------------|----------------------------------------------------------------------------------------
+Withdrawals when balance is 0         | Guard condition to prevent minus balance | Simplest solution, given the specification does not mention overdraft facility
+Print statement when no transactions  | Print 0 balance and current date         | Print statement should still give the account holder the information about their account
 
 Specification
 -------------
