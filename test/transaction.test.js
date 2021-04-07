@@ -1,5 +1,5 @@
 const assert = require('assert');
-const MockDate = require('mockdate');
+const mockdate = require('mockdate');
 
 describe('Transaction', () => {
   const Transaction = require('../lib/transaction');
@@ -13,11 +13,11 @@ describe('Transaction', () => {
 
   describe('#date()', () => {
     it('returns the date of the transaction', () => {
-      const date = '01/01/2000';
-      MockDate.set(date)
+      const date = '01/02/2021';
+      mockdate.set(date)
 
       const transaction = new Transaction(100)
-      assert.strictEqual(transaction.date, date)
+      assert.strictEqual(transaction.date, (new Date).toLocaleDateString())
     });
   });
 });

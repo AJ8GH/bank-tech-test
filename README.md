@@ -20,6 +20,14 @@ Design
 
 ### Approach
 
+#### Assumptions
+
+Ambiguity                                    | Solution                                 | Why
+---------------------------------------------|------------------------------------------|-------------
+Withdrawals when balance is 0                | Guard condition to prevent minus balance | Simplest solution, given the specification does not mention overdraft facility
+Unclear formatting of print statement otuput | Correct formatting to display tabularly  | It's not too much more effort to reformat the output to display properly, and it seems pointless to output a table which is hard to read
+Print statement when no transactions         | Print 0 balance and current date         | Print statement should still give the account holder the information about their account
+
 ### Structure
 
 ### Possible extensions

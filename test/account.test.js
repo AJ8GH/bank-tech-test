@@ -1,5 +1,6 @@
 const assert = require('assert')
-const MockDate = require('mockdate');
+const mockdate = require('mockdate');
+const sinon = require('sinon')
 
 describe('Account', () => {
   const Account = require('../lib/account');
@@ -46,17 +47,21 @@ describe('Account', () => {
   });
 
   describe('#print_statement()', () => {
+    sinon.spy(console);
+
     describe('with no transactions', () => {
       it('prints the balance and date', () => {
         const statement1 = "date | balance\n01/01/2021 | 0.00"
-        MockDate.set('01/01/2021')
-        assert.strictEqual(account.printStatement(), statement1)
+        mockdate.set('01/01/2021')
+        account.printStatement()
+        assert(console.log.calledWith(statement1));
       });
 
       it('knows the correct date', () => {
         const statement1 = "date | balance\n02/02/2021 | 0.00"
-        MockDate.set('02/02/2021')
-        assert.strictEqual(account.printStatement(), statement1)
+        mockdate.set('02/02/2021')
+        account.printStatement()
+        assert(console.log.calledWith(statement1));
       });
     });
   });
