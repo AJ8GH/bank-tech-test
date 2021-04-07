@@ -47,16 +47,22 @@ cd lib
 
 Make sure you are in the root directory: `bank-tech-test`
 
-To see full test output and coverage:
+***To see full test output and coverage:***
 
 ```shell
 npm test
 ```
 
-To run without coverage stats:
+***To run without coverage stats:***
 
 ```shell
 mocha
+```
+
+***Linting:***
+
+```
+eslint .
 ```
 
 ### Usage example
@@ -134,7 +140,10 @@ Design
     - `sinon` to stub functions in class depencies
     - `sinon` to stub console.log
 
-- CI: set up circleCI to run tests on each commit
+- Code quality:
+  - CI: set up `circleCI` to run tests on each commit
+  - Style: repo meets `JSstandard style` guidelines - enforced using ES lint with no outstanding offences
+  - Maintainability: A grade from `Code Climate`
 
 *e.g.*
 
