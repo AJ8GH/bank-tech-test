@@ -3,13 +3,6 @@ const mockdate = require('mockdate');
 const Transaction = require('../lib/transaction');
 
 describe('Transaction', () => {
-  describe('#amount', () => {
-    it('returns the amount of the transaction', () => {
-      const transaction = new Transaction({amount: 100})
-      assert.strictEqual(transaction.amount, 100)
-    });
-  });
-
   describe('#date', () => {
     it('returns the date of the transaction', () => {
       const date = '01/02/2021';
