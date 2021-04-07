@@ -15,7 +15,7 @@ describe('Printer', () => {
 
   afterEach(() => { sinon.restore() })
 
-  xdescribe('#printStatement()', () => {
+  describe('#printStatement()', () => {
     describe('with 1 withdraw and 1 deposit', () => {
       it('prints the correct statement', () => {
         const statement = [

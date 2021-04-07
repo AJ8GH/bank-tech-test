@@ -9,7 +9,7 @@ Bank tech test
 Test Documentation Output
 -------------------------
 
-![test-output](test-output.png)
+![test-output](images/test-output.png)
 
 Getting started
 ---------------
@@ -126,7 +126,7 @@ Design
   - TDD: code has been written test first, with an emphasis on behaviour driven development, using automated feature testsand isolated unit tests to ensure the criteria is met and edge cases covered.
   - Test Coverage: 100%
 
-  ![test-coverage](test-coverage.png)
+  ![test-coverage](images/test-coverage.png)
 
   - Testing framework: `Mocha`
   - Mocks and stubs:
@@ -154,16 +154,9 @@ afterEach(() => { sinon.restore() })
 - Git:
   - Frequent commits with clear messages:
 
-  ![git-log](git-log.png)
+  ![git-log](images/git-log.png)
 
 - Note: the tests which stub console.log are working well on the local development machine but not in circleCI, so they are currently pending in the suite. To unpend and run the full suite, remove the `x` from the beginning describe blocks in `feature.test.js` and `printer.test.js`
-
-#### Assumptions
-
-Ambiguity                                    | Solution                          | Why
---------------------------------------|------------------------------------------|----------------------------------------------------------------------------------------
-Withdrawals when balance is 0         | Guard condition to prevent minus balance | Simplest solution, given the specification does not mention overdraft facility
-Print statement when no transactions  | Print 0 balance and current date         | Print statement should still give the account holder the information about their account
 
 Specification
 -------------
@@ -251,8 +244,8 @@ Printer     | moneyFormat()
 
 ***Deposit Sequence***
 
-![deposit](sequence-diagrams/deposit-sequence.png)
+![deposit](images/sequence-diagrams/deposit-sequence.png)
 
 ***Print Statement Sequence***
 
-![print-statement](sequence-diagrams/print-statement.png)
+![print-statement](images/sequence-diagrams/print-statement.png)

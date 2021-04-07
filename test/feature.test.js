@@ -3,7 +3,7 @@ const mockdate = require('mockdate')
 const sinon = require('sinon')
 const Account = require('../lib/account')
 
-xdescribe('Feature tests', () => {
+describe('Feature tests', () => {
   let account
 
   beforeEach(() => {
