@@ -1,6 +1,6 @@
+const sinon = require('sinon')
 const assert = require('assert')
 const mockdate = require('mockdate');
-const sinon = require('sinon')
 
 describe('Account', () => {
   const Account = require('../lib/account');
@@ -43,6 +43,10 @@ describe('Account', () => {
 
       account.withdraw(100);
       assert.strictEqual(account.balance, 0)
+    });
+
+    it('throws error at 0 balance', () => {
+      assert.throws(() => { account.withdraw(1) }, Error, /Insufficient funds/)
     });
   });
 
