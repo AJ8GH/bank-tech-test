@@ -2,7 +2,8 @@
   "name": "bank-tech-test",
   "version": "1.0.0",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
