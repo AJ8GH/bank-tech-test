@@ -61,12 +61,13 @@ eslint .
 ### Usage
 
 Navigate into `lib` directory, run `node` and load the `account.js` script:
+
 *(note: you must be in the lib directory when you run node or the subscripts will not load, resulting in an error)*
 
 ```shell
 cd lib
 node
-.load ./lib/account.js
+.load ./account.js
 ```
 
 ### Usage example
