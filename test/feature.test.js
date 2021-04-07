@@ -22,7 +22,6 @@ describe('Feature testing', () => {
 
     account.deposit(500)
     account.printStatement()
-
     sinon.assert.calledWith(console.log, output)
   })
 
@@ -37,8 +36,8 @@ describe('Feature testing', () => {
     account.deposit(500)
     account.withdraw(100)
     account.withdraw(350)
-    account.printStatement()
 
+    account.printStatement()
     sinon.assert.calledWith(console.log, output)
   })
 
@@ -59,12 +58,10 @@ describe('Feature testing', () => {
     account.deposit(500)
     account.withdraw(49.99)
     account.printStatement()
-
     sinon.assert.calledWith(console.log, output1)
 
     account.withdraw(101.05)
     account.printStatement()
-
     sinon.assert.calledWith(console.log, output2)
   })
 
@@ -86,7 +83,6 @@ describe('Feature testing', () => {
     account.withdraw(500)
 
     account.printStatement()
-
     sinon.assert.calledWith(console.log, acceptanceCriteria)
   })
 })
