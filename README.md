@@ -167,6 +167,21 @@ afterEach(() => { sinon.restore() })
 
   ![git-log](images/git-log.png)
 
+### Edge cases
+
+The tests and system have been designed to catch the following edge cases:
+- invalid inputs (anything which isn't a positive number)
+- withdrawal amount > balance amount
+
+Extensions
+----------
+
+With more time, it would be great to:
+- Further encapsulate the `Account` logic within a `Bank` class, which could hold multiple accounts, handle user authentication etc
+- Improve the format of the statement output so the table aligns correctly, to improve readability
+- Design a UI to connect with the backend
+- Add a database to persist data
+
 Specification
 -------------
 
