@@ -103,15 +103,15 @@ Design
 
 ### Classes
 
-**Account**
+#### Account
 
-- Understands it's balance and initializes and stores its transactions
+- Understands its balance and initializes and stores its transactions
 - Public functions:
   - `deposit`
   - `withdraw`
   - `printStatement`
 
-**Transaction**
+#### Transaction
 
 - Stores data from a specific transaction, knows the account balance, date it was created, amount and whether it was a deposit or withdrawal.
 - Attributes:
@@ -120,7 +120,7 @@ Design
   - `credit` : the transaction amount if deposit, or undefined if withdrawal
   - `debit` : the transaction amount if withdrawal, or undefined if deposit
 
-**Printer**
+#### Printer
 
 - Understands how to format and print output to the client. Responsible for formatting and logging the transaction data into statements and converting amounts into money format.
   - public methods:
@@ -128,22 +128,22 @@ Design
 
 ### Approach
 
-- Testing:
-  - TDD: code has been written test first, with an emphasis on behaviour driven development, using automated feature testsand isolated unit tests to ensure the criteria is met and edge cases covered.
-  - Test Coverage: 100% (measured using `nyc` / `istanbul`)
+#### Testing
 
-  ![test-coverage](images/test-coverage.png)
+![test-coverage](images/test-coverage.png)
 
-  - Testing framework: `Mocha`
-  - Mocks and stubs:
-    - Date mocked with `MockDate`
-    - `sinon` to stub functions in class depencies
-    - `sinon` to stub console.log
-
-- Code quality:
-  - CI: set up `circleCI` to run tests on each commit
-  - Style: repo meets `JSstandard style` guidelines - enforced using ES lint with no outstanding offences
-  - Maintainability: A grade from `Code Climate`
+- TDD:
+  - Emphasis on behaviour driven development
+  - Automated feature tests
+  - Isolated unit tests
+  - Acceptance criteria met and edge cases covered
+  - Red - Green - Commit - Refactor - Commit
+- Test Coverage: 100% (measured using `nyc` / `istanbul`)
+- Testing framework: `Mocha`
+- Mocks and stubs:
+  - Date mocked with `MockDate`
+  - `sinon` to stub functions in class depencies
+  - `sinon` to stub console.log
 
 *e.g.*
 
@@ -157,17 +157,24 @@ beforeEach(() => {
 afterEach(() => { sinon.restore() })
 ```
 
-- Object Oriented Design:
-  - Focus on Single Responsibility Principle
-  - Dependency injection in `account.js` to ensure code is easily extendable and mockable
-  - 'private' functions are prefixed with an underscore
+#### Code quality
 
-- Git:
-  - Frequent commits with clear messages:
+- CI: set up `circleCI` to run tests on each commit
+- Style: repo meets `JSstandard style` guidelines - enforced using ES lint with no outstanding offences
+- Maintainability: A grade from `Code Climate`
 
-  ![git-log](images/git-log.png)
+#### Object Oriented Design
 
-### Edge cases
+- Focus on Single Responsibility Principle
+- Dependency injection in `account.js` to ensure code is easily extendable and mockable
+- Encapsulation: 'private' functions are prefixed with an underscore
+
+#### Git
+- Atomic commits with clear messages:
+
+![git-log](images/git-log.png)
+
+#### Edge cases
 
 The tests and system have been designed to catch the following edge cases:
 - invalid inputs (anything which isn't a positive number)
