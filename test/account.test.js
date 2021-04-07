@@ -24,6 +24,10 @@ describe('Account', () => {
       account.deposit(55)
       assert.strictEqual(account.balance, 55)
     })
+
+    it('checks that input is a number', () => {
+      assert.throws(() => { account.deposit('hi') }, Error, /Please enter a number/)
+    })
   })
 
   describe('#withdraw()', () => {
@@ -50,6 +54,10 @@ describe('Account', () => {
     it('throws error when amount > balance', () => {
       account.deposit(99)
       assert.throws(() => { account.withdraw(100) }, Error, /Insufficient funds/)
+    })
+
+    it('checks that input is a number', () => {
+      assert.throws(() => { account.withdraw('hi') }, Error, /Please enter a number/)
     })
   })
 

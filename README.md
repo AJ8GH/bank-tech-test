@@ -156,6 +156,8 @@ afterEach(() => { sinon.restore() })
 
   ![git-log](git-log.png)
 
+- Note: the tests which stub console.log are working well on the local development machine but not in circleCI, so they are currently pending in the suite. To unpend and run the full suite, remove the `x` from the beginning describe blocks in `feature.test.js` and `printer.test.js`
+
 #### Assumptions
 
 Ambiguity                                    | Solution                          | Why
