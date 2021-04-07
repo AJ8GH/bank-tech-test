@@ -55,6 +55,6 @@ describe('Account', () => {
     });
   });
 
-  // describe('#print_statement()', () => {
-  // });
+  describe('#printStatement()', () => {
+  });
 });
