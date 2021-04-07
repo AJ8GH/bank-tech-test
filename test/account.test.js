@@ -55,9 +55,9 @@ describe('Account', () => {
 
   describe('#printStatement()', () => {
     it('calls print function to printer', () => {
-      sinon.stub(account.Printer, 'printStatement')
+      sinon.stub(account.printer, 'printStatement')
       account.printStatement()
-      sinon.assert.calledOnce(account.Printer.printStatement)
+      sinon.assert.calledOnce(account.printer.printStatement)
     })
   })
 })
