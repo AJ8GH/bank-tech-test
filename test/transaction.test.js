@@ -54,8 +54,8 @@ describe('Transaction', () => {
 
   describe('#balance', () => {
     it('returns the transaction amount', () => {
-      const transaction = new Transaction({ balance: 2000, amount: 500, debit: 500 });
-      assert.strictEqual(transaction.balance, 2000);
+      const transaction = new Transaction({ balance: 2000, amount: 500, debit: 500 })
+      assert.strictEqual(transaction.balance, 2000)
     });
   });
 });
