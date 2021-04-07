@@ -1,13 +1,12 @@
 const sinon = require('sinon');
 const assert = require('assert');
+const Account = require('../lib/account');
 
 describe('Account', () => {
-  const Account = require('../lib/account');
   let account;
 
-  beforeEach(() => {
-    account = new Account();
-  });
+  beforeEach(() => { account = new Account(); });
+  afterEach(() => { sinon.restore(); });
 
   describe('#balance()', () => {
     it('is 0 by default', () => {
