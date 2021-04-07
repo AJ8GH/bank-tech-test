@@ -81,31 +81,46 @@ Planning
 ### User stories
 
 ```
-As a customer,
-So that I can keep my money safe,
-I want to be able to make a deposit.
+As a client,
+I want to be able to make a deposit,
+So that I can keep my money safe.
 
-As a customer,
-So that I can access my money,
-I want to be able to make a withdrawal.
+As a client,
+I want to be able to make a withdrawal,
+So that I can access my money.
 
-As a customer,
-So that I can keep track of my banking activities
-I want to be able to request bank-statements.
+As a client,
+I want to be able to request bank-statements,
+So that I can keep track of my banking activities.
+
+As a client,
+I want statements to show the transaction amount, type, date and new balance,
+So that I can be fully informed.
+
+As a client,
+I want transactions listed with the most recent first.
+For convenience and a better UX.
+
+As a Bank Manager,
+I want accounts to prevent withdrawals into negative balances,
+So that the bank does not lose money and clients don't get into debt.
 ```
-
-### Input / Output
-
-Input | Output
-------|--------
-a     | b
 
 ### Classes
 
-Object | Message
--------|---------
-a      | b
+Object      | Message
+------------|---------
+Account     | deposit()
+Account     | withdraw()
+Account     | printStatement()
+Transaction | date
+Transaction | credit
+Transaction | debit
+Transaction | balance
+Printer     | printStatement
+Printer     | moneyFormat()
 
 ### Diagrams
+
 
 ### User stories
