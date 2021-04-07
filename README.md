@@ -6,11 +6,6 @@ Bank tech test
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4dd8f783b6d062f73efc/maintainability)](https://codeclimate.com/github/AJ8GH/bank-tech-test/maintainability)
 
-Test Documentation Output
--------------------------
-
-![test-output](images/test-output.png)
-
 Getting started
 ---------------
 
@@ -97,6 +92,11 @@ date || credit || debit || balance
 07/04/2021 || £2,000.00 ||  || £2,100.00
 07/04/2021 || £100.00 ||  || £100.00
 ```
+
+Test Documentation Output
+-------------------------
+
+![test-output](images/test-output.png)
 
 Design
 ------
