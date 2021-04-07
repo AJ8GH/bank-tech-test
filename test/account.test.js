@@ -48,6 +48,11 @@ describe('Account', () => {
     it('throws error at 0 balance', () => {
       assert.throws(() => { account.withdraw(1) }, Error, /Insufficient funds/)
     });
+
+    it('throws error when amount > balance', () => {
+      account.deposit(99);
+      assert.throws(() => { account.withdraw(100) }, Error, /Insufficient funds/)
+    });
   });
 
   describe('#print_statement()', () => {
