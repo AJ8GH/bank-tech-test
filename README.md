@@ -28,14 +28,12 @@ Getting started
 
 ### Installation and setup
 
-Clone the repo, install the dependenices and load up the files.
+Clone the repo, install the dependenices:
 
 ```shell
 git clone git@github.com:AJ8GH/bank-tech-test.git
 cd bank-tech-test
 npm install
-cd lib
-.load ./lib/account.js
 ```
 
 ### Running tests
@@ -58,6 +56,17 @@ mocha
 
 ```
 eslint .
+```
+
+### Usage
+
+Navigate into `lib` directory, run `node` and load the `account.js` script:
+*(note: you must be in the lib directory when you run node or the subscripts will not load, resulting in an error)*
+
+```shell
+cd lib
+node
+.load ./lib/account.js
 ```
 
 ### Usage example
