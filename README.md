@@ -6,26 +6,124 @@ Bank tech test
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4dd8f783b6d062f73efc/maintainability)](https://codeclimate.com/github/AJ8GH/bank-tech-test/maintainability)
 
+Test Documentation Output
+-------------------------
+
+![test-output](test-output.png)
+
 Getting started
 ---------------
 
 ### Dependencies
 
+***Devevelopment Dependencies:***
+
+- `"coveralls": "^3.1.0"
+- `"eslint": "^7.23.0"
+- `"eslint-config-standard": "^16.0.2"
+- `"eslint-plugin-import": "^2.22.1"
+- `"eslint-plugin-node": "^11.1.0"
+- `"eslint-plugin-promise": "^4.3.1"
+- `"mocha": "^8.3.2"
+- `"mocha-lcov-reporter": "^1.3.0"
+- `"mocha-sinon": "^2.1.2"
+- `"mockdate": "^3.0.5"
+- `"nyc": "^15.1.0"
+- `"sinon": "^10.0.0"
+
 ### Installation and setup
 
+Clone the repo, install the dependenices and load up the files.
+
+```shell
+git clone git@github.com:AJ8GH/bank-tech-test.git
+cd bank-tech-test
+npm install
+cd lib
+.load ./lib/account.js
+```
+
 ### Running tests
+
+Make sure you are in the root directory: `bank-tech-test`
+
+To see full test output and coverage:
+
+```shell
+npm test
+```
+
+To run without coverage stats:
+
+```shell
+mocha
+```
 
 Design
 ------
 
+### Classes
+
+**Account**
+
+- Understands it's balance and initializes and stores its transactions
+- Public functions:
+  - `deposit`
+  - `withdraw`
+  - `printStatement`
+
+**Transaction**
+
+- Stores data from a specific transaction, knows the account balance, date it was created, amount and whether it was a deposit or withdrawal.
+- Attributes:
+  - `balance`
+  - `date` : auto-creates the current date
+  - `credit` : the transaction amount if deposit, or undefined if withdrawal
+  - `debit` : the transaction amount if withdrawal, or undefined if deposit
+
+**Printer**
+
+- Understands how to format and print output to the client. Responsible for formatting and logging the transaction data into statements and converting amounts into money format.
+  - public methods:
+  - `printStatement`
+
 ### Approach
+
+**Testing:**
+
+- TDD: code has been written test first, with an emphasis on behaviour driven development, using automated feature testsand isolated unit tests to ensure the criteria is met and edge cases covered.
+- Test Coverage: 100%
+
+![test-coverage](test-coverage.png)
+
+- Testing framework: `Mocha`
+- Mocks and stubs:
+  - Date mocked with `MockDate`
+  - `sinon` to stub functions in class depencies
+  - `sinon` to stub console.log
+
+*e.g.*
+
+```js
+beforeEach(() => {
+  account = new Account()
+  mockdate.set('02/01/2021')
+  sinon.stub(console, 'log')
+})
+
+afterEach(() => { sinon.restore() })
+```
+
+- Object Oriented Design:
+  - Focus on Single Responsibility Principle
+  - Dependency injection in `account.js` to ensure code is easily extendable and mockable
+  - 'private' functions are prefixed with an underscore
 
 #### Assumptions
 
 Ambiguity                                    | Solution                                 | Why
 ---------------------------------------------|------------------------------------------|-------------
 Withdrawals when balance is 0                | Guard condition to prevent minus balance | Simplest solution, given the specification does not mention overdraft facility
-Unclear formatting of print statement otuput | Correct formatting to display tabularly  | It's not too much more effort to reformat the output to display properly, and it seems pointless to output a table which is hard to read
 Print statement when no transactions         | Print 0 balance and current date         | Print statement should still give the account holder the information about their account
 
 ### Structure
@@ -122,5 +220,10 @@ Printer     | moneyFormat()
 
 ### Diagrams
 
+***Deposit Sequence***
 
-### User stories
+![deposit](sequence-diagrams/deposit-sequence.png)
+
+***Print Statement Sequence***
+
+![print-statement](sequence-diagrams/print-statement.png)
