@@ -38,7 +38,7 @@ describe('Printer', () => {
       assert.strictEqual(printer.moneyFormat(1), '£1.00')
     })
 
-    it('correctly formats 5025.789', () => {
+    it('correctly formats 5025.79', () => {
       assert.strictEqual(printer.moneyFormat(5025.79), '£5,025.79')
     })
 
