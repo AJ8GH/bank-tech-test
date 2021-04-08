@@ -16,20 +16,18 @@ describe('Printer', () => {
   afterEach(() => { sinon.restore() })
 
   describe('#printStatement()', () => {
-    describe('with 1 withdraw and 1 deposit', () => {
-      it('prints the correct statement', () => {
-        const statement = [
-          'date || credit || debit || balance',
-          '02/02/2021 || £500.00 ||  || £500.00',
-          '02/02/2021 ||  || £200.00 || £300.00'
-        ].join("\n")
+    it('prints correct statement after 1 deposit 1 withdrawal', () => {
+      const statement = [
+        'date || credit || debit || balance',
+        '02/02/2021 || £500.00 ||  || £500.00',
+        '02/02/2021 ||  || £200.00 || £300.00'
+      ].join("\n")
 
-        const transaction1 = new Transaction({ balance: '£500.00', credit: '£500.00'})
-        const transaction2 = new Transaction({ balance: '£300.00', debit: '£200.00'})
+      const transaction1 = new Transaction({ balance: '£500.00', credit: '£500.00'})
+      const transaction2 = new Transaction({ balance: '£300.00', debit: '£200.00'})
 
-        printer.printStatement([transaction1, transaction2])
-        sinon.assert.calledWith(console.log, statement)
-      })
+      printer.printStatement([transaction1, transaction2])
+      sinon.assert.calledWith(console.log, statement)
     })
   })
 
