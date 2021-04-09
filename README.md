@@ -47,12 +47,6 @@ Make sure you are in the root directory: `bank-tech-test`
 npm test
 ```
 
-***To run without coverage stats:***
-
-```shell
-mocha
-```
-
 ***Linting:***
 
 ```
@@ -63,7 +57,7 @@ npm run lint .
 
 Navigate into `lib` directory, run `node` and load the `account.js` script:
 
-*(note: you must be in the lib directory when you run node or the subscripts will not load, resulting in an error)*
+*(note: you must be in the lib directory when you run node or the sub-scripts will not load, resulting in an error)*
 
 ```shell
 cd lib
