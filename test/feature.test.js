@@ -66,7 +66,7 @@ describe('Feature tests', () => {
   })
 
   it('meets the acceptance criteria', () => {
-    acceptanceCriteria = [
+    const acceptanceCriteria = [
       'date || credit || debit || balance',
       '14/01/2012 ||  || £500.00 || £2,500.00',
       '13/01/2012 || £2,000.00 ||  || £3,000.00',

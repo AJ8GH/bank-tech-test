@@ -5,6 +5,7 @@ Bank tech test
 [![AJ8GH](https://circleci.com/gh/AJ8GH/bank-tech-test.svg?style=svg)](https://app.circleci.com/pipelines/github/AJ8GH/bank-tech-test)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4dd8f783b6d062f73efc/maintainability)](https://codeclimate.com/github/AJ8GH/bank-tech-test/maintainability)
+[![BCH compliance](https://bettercodehub.com/edge/badge/AJ8GH/bank-tech-test?branch=main)](https://bettercodehub.com/)
 
 Getting started
 ---------------
@@ -55,7 +56,7 @@ mocha
 ***Linting:***
 
 ```
-eslint .
+npm run lint .
 ```
 
 ### Usage
@@ -125,10 +126,10 @@ Design
 
 - Stores data from a specific transaction, knows the account balance, date it was created, amount and whether it was a deposit or withdrawal.
 - Attributes:
-  - `balance`
-  - `date` : auto-creates the current date
-  - `credit` : the transaction amount if deposit, or undefined if withdrawal
-  - `debit` : the transaction amount if withdrawal, or undefined if deposit
+  - `balance` : account balance upon completion of transaction
+  - `date` : timestamp of the transaction date in `dd/mm/yyyy` format
+  - `credit` : transaction amount if deposit, `undefined` if withdrawal
+  - `debit` : transaction amount if withdrawal, `undefined` if deposit
 
 #### Printer
 

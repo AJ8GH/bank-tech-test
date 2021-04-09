@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "nyc --reporter=text mocha",
+    "lint": "eslint .",
     "coverage": "nyc report --reporter=text-lcov"
   },
   "repository": {
