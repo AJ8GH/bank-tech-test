@@ -81,13 +81,9 @@ describe('Account', () => {
     })
 
     it('checks that input is a number', () => {
-      assert.throws(
-        () => {
+      assert.throws(() => {
           account.withdraw('hi')
-        },
-        Error,
-        /Please enter a postive number/,
-      )
+        }, Error, /Please enter a postive number/)
     })
   })
 
