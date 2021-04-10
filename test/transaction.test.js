@@ -3,53 +3,46 @@ const mockdate = require('mockdate')
 const Transaction = require('../lib/transaction')
 
 describe('Transaction', () => {
-  let creditTransaction
-  let debitTransaction
-
-  beforeEach(() => {
-    mockdate.set('01/02/2021')
-    creditTransaction = new Transaction({ balance: 2000, credit: 500 })
-    debitTransaction = new Transaction({ balance: 2000, debit: 500 })
-  })
-
   describe('#date', () => {
     it('returns the date of the transaction', () => {
+      mockdate.set('01/02/2021')
       const testDate = new Date().toLocaleDateString('en-GB')
-      assert.strictEqual(creditTransaction.date, testDate)
+
+      const transaction = new Transaction({ credit: 200, balance: 500 })
+      assert.strictEqual(transaction.date, testDate)
     })
   })
 
-  describe('#credit', () => {
+  describe('.create()', () => {
     describe('when transaction is a deposit', () => {
-      it('returns the transaction amount', () => {
-        assert.strictEqual(creditTransaction.credit, 500)
+      const transaction = Transaction.create({ credit: 200, balance: 500 })
+
+      it('creates transaction and sets credit to amount', () => {
+        assert.strictEqual(transaction.credit, 200)
+      })
+
+      it('leaves debit amount undefined', () => {
+        assert.strictEqual(transaction.debit, undefined)
       })
     })
 
     describe('when transaction is a withdrawal', () => {
-      it('returns nothing', () => {
-        assert.strictEqual(debitTransaction.credit, undefined)
-      })
-    })
-  })
+      const transaction = Transaction.create({ debit: 200, balance: 500 })
 
-  describe('#debit', () => {
-    describe('when transaction is a withdrawal', () => {
-      it('returns the transaction amount', () => {
-        assert.strictEqual(debitTransaction.debit, 500)
+      it('creates transaction and sets debit to amount', () => {
+        assert.strictEqual(transaction.debit, 200)
       })
-    })
 
-    describe('when transaction is a deposit', () => {
-      it('returns nothing', () => {
-        assert.strictEqual(creditTransaction.debit, undefined)
+      it('leaves credit amount undefined', () => {
+        assert.strictEqual(transaction.credit, undefined)
       })
     })
   })
 
   describe('#balance', () => {
     it('returns the balance at the time of transaction', () => {
-      assert.strictEqual(creditTransaction.balance, 2000)
+      const transaction = new Transaction({ credit: 200, balance: 500 })
+      assert.strictEqual(transaction.balance, 500)
     })
   })
 })
