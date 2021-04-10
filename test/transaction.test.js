@@ -8,8 +8,8 @@ describe('Transaction', () => {
 
   beforeEach(() => {
     mockdate.set('01/02/2021')
-    creditTransaction = new Transaction({ balance: 2000, credit: 500 })
-    debitTransaction = new Transaction({ balance: 2000, debit: 500 })
+    creditTransaction = Transaction.credit(200, 500)
+    debitTransaction = Transaction.debit(200, 500)
   })
 
   describe('#date', () => {
@@ -22,13 +22,13 @@ describe('Transaction', () => {
   describe('#credit', () => {
     describe('when transaction is a deposit', () => {
       it('returns the transaction amount', () => {
-        assert.strictEqual(creditTransaction.credit, 500)
+        assert.strictEqual(creditTransaction.credit, 200)
       })
     })
 
     describe('when transaction is a withdrawal', () => {
       it('returns nothing', () => {
-        assert.strictEqual(debitTransaction.credit, undefined)
+        assert.strictEqual(debitTransaction.credit, null)
       })
     })
   })
@@ -36,34 +36,20 @@ describe('Transaction', () => {
   describe('#debit', () => {
     describe('when transaction is a withdrawal', () => {
       it('returns the transaction amount', () => {
-        assert.strictEqual(debitTransaction.debit, 500)
+        assert.strictEqual(debitTransaction.debit, 200)
       })
     })
 
     describe('when transaction is a deposit', () => {
       it('returns nothing', () => {
-        assert.strictEqual(creditTransaction.debit, undefined)
+        assert.strictEqual(creditTransaction.debit, null)
       })
     })
   })
 
   describe('#balance', () => {
     it('returns the balance at the time of transaction', () => {
-      assert.strictEqual(creditTransaction.balance, 2000)
-    })
-  })
-
-  describe('.credit()', () => {
-    it('creates new credit transaction of the given amount', () => {
-      const transaction = Transaction.credit({ amount: 200 })
-      assert.strictEqual(transaction.credit, 200)
-    })
-  })
-
-  describe('.debit()', () => {
-    it('creates new debit transaction of the given amount', () => {
-      const transaction = Transaction.debit({ amount: 200 })
-      assert.strictEqual(transaction.debit, 200)
+      assert.strictEqual(creditTransaction.balance, 500)
     })
   })
 })
