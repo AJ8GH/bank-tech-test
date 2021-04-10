@@ -1,6 +1,6 @@
-const assert = require('assert');
-const mockdate = require('mockdate');
-const Transaction = require('../lib/transaction');
+const assert = require('assert')
+const mockdate = require('mockdate')
+const Transaction = require('../lib/transaction')
 
 describe('Transaction', () => {
   let creditTransaction
@@ -14,42 +14,42 @@ describe('Transaction', () => {
 
   describe('#date', () => {
     it('returns the date of the transaction', () => {
-      const testDate = (new Date).toLocaleDateString('en-GB')
+      const testDate = new Date().toLocaleDateString('en-GB')
       assert.strictEqual(creditTransaction.date, testDate)
-    });
-  });
+    })
+  })
 
   describe('#credit', () => {
     describe('when transaction is a deposit', () => {
       it('returns the transaction amount', () => {
         assert.strictEqual(creditTransaction.credit, 500)
       })
-    });
+    })
 
     describe('when transaction is a withdrawal', () => {
       it('returns nothing', () => {
         assert.strictEqual(debitTransaction.credit, undefined)
-      });
-    });
-  });
+      })
+    })
+  })
 
   describe('#debit', () => {
     describe('when transaction is a withdrawal', () => {
       it('returns the transaction amount', () => {
         assert.strictEqual(debitTransaction.debit, 500)
       })
-    });
+    })
 
     describe('when transaction is a deposit', () => {
       it('returns nothing', () => {
         assert.strictEqual(creditTransaction.debit, undefined)
       })
-    });
-  });
+    })
+  })
 
   describe('#balance', () => {
     it('returns the balance at the time of transaction', () => {
       assert.strictEqual(creditTransaction.balance, 2000)
-    });
-  });
-});
+    })
+  })
+})

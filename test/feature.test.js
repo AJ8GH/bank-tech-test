@@ -12,12 +12,14 @@ describe('Feature tests', () => {
     sinon.stub(console, 'log')
   })
 
-  afterEach(() => { sinon.restore() })
+  afterEach(() => {
+    sinon.restore()
+  })
 
   it('prints correct statement after 1 deposit', () => {
     const output = [
       'date || credit || debit || balance',
-      '01/02/2021 || £500.00 ||  || £500.00'
+      '01/02/2021 || £500.00 ||  || £500.00',
     ].join('\n')
 
     account.deposit(500)
@@ -30,7 +32,7 @@ describe('Feature tests', () => {
       'date || credit || debit || balance',
       '01/02/2021 ||  || £350.00 || £50.00',
       '01/02/2021 ||  || £100.00 || £400.00',
-      '01/02/2021 || £500.00 ||  || £500.00'
+      '01/02/2021 || £500.00 ||  || £500.00',
     ].join('\n')
 
     account.deposit(500)
@@ -45,14 +47,14 @@ describe('Feature tests', () => {
     const output1 = [
       'date || credit || debit || balance',
       '01/02/2021 ||  || £49.99 || £450.01',
-      '01/02/2021 || £500.00 ||  || £500.00'
+      '01/02/2021 || £500.00 ||  || £500.00',
     ].join('\n')
 
     const output2 = [
       'date || credit || debit || balance',
       '01/02/2021 ||  || £101.05 || £348.96',
       '01/02/2021 ||  || £49.99 || £450.01',
-      '01/02/2021 || £500.00 ||  || £500.00'
+      '01/02/2021 || £500.00 ||  || £500.00',
     ].join('\n')
 
     account.deposit(500)
@@ -70,7 +72,7 @@ describe('Feature tests', () => {
       'date || credit || debit || balance',
       '14/01/2012 ||  || £500.00 || £2,500.00',
       '13/01/2012 || £2,000.00 ||  || £3,000.00',
-      '10/01/2012 || £1,000.00 ||  || £1,000.00'
+      '10/01/2012 || £1,000.00 ||  || £1,000.00',
     ].join('\n')
 
     mockdate.set('01/10/2012')

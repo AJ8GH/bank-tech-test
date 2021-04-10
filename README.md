@@ -1,5 +1,4 @@
-Bank tech test
-==============
+# Bank tech test
 
 [![AJ8GH](https://circleci.com/gh/AJ8GH/bank-tech-test.svg?style=shield)](https://app.circleci.com/pipelines/github/AJ8GH/bank-tech-test)
 [![AJ8GH](https://circleci.com/gh/AJ8GH/bank-tech-test.svg?style=svg)](https://app.circleci.com/pipelines/github/AJ8GH/bank-tech-test)
@@ -7,12 +6,11 @@ Bank tech test
 [![Maintainability](https://api.codeclimate.com/v1/badges/4dd8f783b6d062f73efc/maintainability)](https://codeclimate.com/github/AJ8GH/bank-tech-test/maintainability)
 [![BCH compliance](https://bettercodehub.com/edge/badge/AJ8GH/bank-tech-test?branch=main)](https://bettercodehub.com/)
 
-Getting started
----------------
+## Getting started
 
 ### Dependencies
 
-***Devevelopment Dependencies:***
+**_Devevelopment Dependencies:_**
 
 - `"coveralls": "^3.1.0"`
 - `"eslint": "^7.23.0"`
@@ -41,13 +39,13 @@ npm install
 
 Make sure you are in the root directory: `bank-tech-test`
 
-***To see full test output and coverage:***
+**_To see full test output and coverage:_**
 
 ```shell
 npm test
 ```
 
-***Linting:***
+**_Linting:_**
 
 ```
 npm run lint .
@@ -57,7 +55,7 @@ npm run lint .
 
 Navigate into `lib` directory, run `node` and load the `account.js` script:
 
-*(note: you must be in the lib directory when you run node or the sub-scripts will not load, resulting in an error)*
+_(note: you must be in the lib directory when you run node or the sub-scripts will not load, resulting in an error)_
 
 ```shell
 cd lib
@@ -98,13 +96,11 @@ date || credit || debit || balance
 07/04/2021 || £100.00 ||  || £100.00
 ```
 
-Test Documentation Output
--------------------------
+## Test Documentation Output
 
 ![test-output](images/test-output.png)
 
-Design
-------
+## Design
 
 ### Classes
 
@@ -157,7 +153,9 @@ beforeEach(() => {
   sinon.stub(console, 'log')
 })
 
-afterEach(() => { sinon.restore() })
+afterEach(() => {
+  sinon.restore()
+})
 ```
 
 #### Code quality
@@ -173,6 +171,7 @@ afterEach(() => { sinon.restore() })
 - Encapsulation: 'private' functions are prefixed with an underscore
 
 #### Git
+
 - Atomic commits with clear messages:
 
 ![git-log](images/git-log.png)
@@ -180,31 +179,33 @@ afterEach(() => { sinon.restore() })
 #### Edge cases
 
 The tests and system have been designed to catch the following edge cases:
+
 - invalid inputs (anything which isn't a positive number)
 - withdrawal amount > balance amount
 
-Extensions
-----------
+## Extensions
 
 With more time, it would be great to:
+
 - Further encapsulate the `Account` logic within a `Bank` class, which could hold multiple accounts, handle user authentication etc
 - Improve the format of the statement output so the table aligns correctly, to improve readability
 - Design a UI to connect with the backend
 - Add a database to persist data
 
-Specification
--------------
+## Specification
 
 ### Requirements
 
 #### High-level:
-* Interact via IRB or JS Console
-* Data kept in memory (no database)
+
+- Interact via IRB or JS Console
+- Data kept in memory (no database)
 
 #### User functionality:
-* Deposits
-* withdrawals
-* Account statement printing (date, amount, balance)
+
+- Deposits
+- withdrawals
+- Account statement printing (date, amount, balance)
 
 ### Acceptance criteria
 
@@ -221,16 +222,15 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
-***table format***
+**_table format_**
 
-date       | credit  | debit  | balance
------------|---------|--------|--------
-14/01/2012 |         | 500.00 | 2500.00
-13/01/2012 | 2000.00 |        | 3000.00
-10/01/2012 | 1000.00 |        | 1000.00
+| date       | credit  | debit  | balance |
+| ---------- | ------- | ------ | ------- |
+| 14/01/2012 |         | 500.00 | 2500.00 |
+| 13/01/2012 | 2000.00 |        | 3000.00 |
+| 10/01/2012 | 1000.00 |        | 1000.00 |
 
-Planning
---------
+## Planning
 
 ### User stories
 
@@ -262,24 +262,24 @@ So that the bank does not lose money and clients don't get into debt.
 
 ### Classes
 
-Object      | Message
-------------|---------
-Account     | deposit()
-Account     | withdraw()
-Account     | printStatement()
-Transaction | date
-Transaction | credit
-Transaction | debit
-Transaction | balance
-Printer     | printStatement
-Printer     | moneyFormat()
+| Object      | Message          |
+| ----------- | ---------------- |
+| Account     | deposit()        |
+| Account     | withdraw()       |
+| Account     | printStatement() |
+| Transaction | date             |
+| Transaction | credit           |
+| Transaction | debit            |
+| Transaction | balance          |
+| Printer     | printStatement   |
+| Printer     | moneyFormat()    |
 
 ### Diagrams
 
-***Deposit Sequence***
+**_Deposit Sequence_**
 
 ![deposit](images/sequence-diagrams/deposit-sequence.png)
 
-***Print Statement Sequence***
+**_Print Statement Sequence_**
 
 ![print-statement](images/sequence-diagrams/print-statement.png)

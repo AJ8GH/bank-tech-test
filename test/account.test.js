@@ -10,7 +10,9 @@ describe('Account', () => {
     sinon.stub(account.printer, 'printStatement')
   })
 
-  afterEach(() => { sinon.restore() })
+  afterEach(() => {
+    sinon.restore()
+  })
 
   describe('#balance()', () => {
     it('is 0 by default', () => {
@@ -30,7 +32,13 @@ describe('Account', () => {
     })
 
     it('checks that input is a number', () => {
-      assert.throws(() => { account.deposit('hi') }, Error, /Please enter a number/)
+      assert.throws(
+        () => {
+          account.deposit('hi')
+        },
+        Error,
+        /Please enter a number/,
+      )
     })
   })
 
@@ -52,16 +60,34 @@ describe('Account', () => {
     })
 
     it('throws error at 0 balance', () => {
-      assert.throws(() => { account.withdraw(1) }, Error, /Insufficient funds/)
+      assert.throws(
+        () => {
+          account.withdraw(1)
+        },
+        Error,
+        /Insufficient funds/,
+      )
     })
 
     it('throws error when amount > balance', () => {
       account.deposit(99)
-      assert.throws(() => { account.withdraw(100) }, Error, /Insufficient funds/)
+      assert.throws(
+        () => {
+          account.withdraw(100)
+        },
+        Error,
+        /Insufficient funds/,
+      )
     })
 
     it('checks that input is a number', () => {
-      assert.throws(() => { account.withdraw('hi') }, Error, /Please enter a postive number/)
+      assert.throws(
+        () => {
+          account.withdraw('hi')
+        },
+        Error,
+        /Please enter a postive number/,
+      )
     })
   })
 
