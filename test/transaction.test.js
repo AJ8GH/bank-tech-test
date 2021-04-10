@@ -59,4 +59,11 @@ describe('Transaction', () => {
       assert.strictEqual(transaction.credit, 200)
     })
   })
+
+  describe('.debit()', () => {
+    it('creates new debit transaction of the given amount', () => {
+      const transaction = Transaction.debit({ amount: 200 })
+      assert.strictEqual(transaction.debit, 200)
+    })
+  })
 })
