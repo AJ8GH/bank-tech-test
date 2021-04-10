@@ -25,8 +25,8 @@ describe('Printer', () => {
         '02/02/2021 ||  || £200.00 || £300.00',
       ].join('\n')
 
-      const transaction1 = Transaction.credit(500, 500)
-      const transaction2 = Transaction.debit(200, 300)
+      const transaction1 = Transaction.create({ credit: 500, balance: 500 })
+      const transaction2 = Transaction.create({ debit: 200, balance: 300 })
 
       printer.printStatement([transaction1, transaction2])
       sinon.assert.calledWith(console.log, statement)
