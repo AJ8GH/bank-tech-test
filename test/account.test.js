@@ -32,13 +32,9 @@ describe('Account', () => {
     })
 
     it('checks that input is a number', () => {
-      assert.throws(
-        () => {
+      assert.throws(() => {
           account.deposit('hi')
-        },
-        Error,
-        /Please enter a number/,
-      )
+        }, Error, /Please enter a number/)
     })
   })
 
@@ -60,24 +56,17 @@ describe('Account', () => {
     })
 
     it('throws error at 0 balance', () => {
-      assert.throws(
-        () => {
+      assert.throws(() => {
           account.withdraw(1)
         },
-        Error,
-        /Insufficient funds/,
-      )
+        Error, /Insufficient funds/)
     })
 
     it('throws error when amount > balance', () => {
       account.deposit(99)
-      assert.throws(
-        () => {
+      assert.throws(() => {
           account.withdraw(100)
-        },
-        Error,
-        /Insufficient funds/,
-      )
+        }, Error, /Insufficient funds/)
     })
 
     it('checks that input is a number', () => {
