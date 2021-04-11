@@ -21,8 +21,8 @@ describe('Transaction', () => {
         assert.strictEqual(transaction.credit, 200)
       })
 
-      it('leaves debit amount undefined', () => {
-        assert.strictEqual(transaction.debit, undefined)
+      it('leaves debit to 0', () => {
+        assert.strictEqual(transaction.debit, 0)
       })
     })
 
@@ -33,8 +33,8 @@ describe('Transaction', () => {
         assert.strictEqual(transaction.debit, 200)
       })
 
-      it('leaves credit amount undefined', () => {
-        assert.strictEqual(transaction.credit, undefined)
+      it('sets credit to 0', () => {
+        assert.strictEqual(transaction.credit, 0)
       })
     })
   })

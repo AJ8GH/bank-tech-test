@@ -16,22 +16,30 @@ describe('Account', () => {
 
   describe('#balance()', () => {
     it('is 0 by default', () => {
-      assert.strictEqual(account.balance, 0)
+      assert.strictEqual(account.balance(), 0)
+    })
+
+    it('subtracts the withdrawals', () => {
+      const deposit0 = { credit: 100, debit: 0 }
+      const deposit1 = { credit: 200, debit: 0 }
+      account.transactions = [deposit0, deposit1]
+
+      assert.strictEqual(account.balance(), 300)
+    })
+
+    it('sums the deposits', () => {
+      const deposit0 = { credit: 100, debit: 0 }
+      const deposit1 = { credit: 200, debit: 0 }
+      const withdraw0 = { credit: 0, debit: 50 }
+      const withdraw1 = { credit: 0, debit: 100 }
+      account.transactions = [deposit0, deposit1, withdraw0, withdraw1]
+
+      assert.strictEqual(account.balance(), 150)
     })
   })
 
   describe('#deposit()', () => {
-    it('adds amount to balance', () => {
-      account.deposit(100)
-      assert.strictEqual(account.balance, 100)
-    })
-
-    it('adds the correct amount to balance', () => {
-      account.deposit(55)
-      assert.strictEqual(account.balance, 55)
-    })
-
-    it('checks that input is a number', () => {
+    it('checks that input is a positive number', () => {
       assert.throws(() => {
           account.deposit('hi')
         }, Error, /Please enter a number/)
@@ -39,29 +47,6 @@ describe('Account', () => {
   })
 
   describe('#withdraw()', () => {
-    it('subtracts amount from balance', () => {
-      account.deposit(100)
-      assert.strictEqual(account.balance, 100)
-
-      account.withdraw(50)
-      assert.strictEqual(account.balance, 50)
-    })
-
-    it('subtracts correct amount from balance', () => {
-      account.deposit(100)
-      assert.strictEqual(account.balance, 100)
-
-      account.withdraw(100)
-      assert.strictEqual(account.balance, 0)
-    })
-
-    it('throws error at 0 balance', () => {
-      assert.throws(() => {
-          account.withdraw(1)
-        },
-        Error, /Insufficient funds/)
-    })
-
     it('throws error when amount > balance', () => {
       account.deposit(99)
       assert.throws(() => {
@@ -69,7 +54,7 @@ describe('Account', () => {
         }, Error, /Insufficient funds/)
     })
 
-    it('checks that input is a number', () => {
+    it('checks that input is a positive number', () => {
       assert.throws(() => {
           account.withdraw('hi')
         }, Error, /Please enter a postive number/)
