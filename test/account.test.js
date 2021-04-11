@@ -19,14 +19,22 @@ describe('Account', () => {
       assert.strictEqual(account.balance(), 0)
     })
 
-    it('sums the deposits', () => {
-      const deposit1 = { credit: 100 }
-      const deposit2 = { credit: 200 }
-
-      account.transactions.unshift(deposit1)
-      account.transactions.unshift(deposit2)
+    it('subtracts the withdrawals', () => {
+      const deposit0 = { credit: 100, debit: 0 }
+      const deposit1 = { credit: 200, debit: 0 }
+      account.transactions = [deposit0, deposit1]
 
       assert.strictEqual(account.balance(), 300)
+    })
+
+    it('sums the deposits', () => {
+      const deposit0 = { credit: 100, debit: 0 }
+      const deposit1 = { credit: 200, debit: 0 }
+      const withdraw0 = { credit: 0, debit: 50 }
+      const withdraw1 = { credit: 0, debit: 100 }
+      account.transactions = [deposit0, deposit1, withdraw0, withdraw1]
+
+      assert.strictEqual(account.balance(), 150)
     })
   })
 
