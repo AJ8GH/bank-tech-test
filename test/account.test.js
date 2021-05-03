@@ -1,6 +1,7 @@
 import sinon from 'sinon'
 import assert from 'assert'
 import Account from '../lib/account.js'
+import { FUNDS_ERROR, INPUT_ERROR } from '../lib/translations.js'
 
 describe('Account', () => {
   let account
@@ -15,10 +16,6 @@ describe('Account', () => {
   })
 
   describe('#balance()', () => {
-    it('is 0 by default', () => {
-      assert.strictEqual(account.balance(), 0)
-    })
-
     it('subtracts the withdrawals', () => {
       const deposit0 = { credit: 100, debit: 0 }
       const deposit1 = { credit: 200, debit: 0 }
@@ -42,7 +39,7 @@ describe('Account', () => {
     it('checks that input is a positive number', () => {
       assert.throws(() => {
           account.deposit('hi')
-        }, Error, /Please enter a number/)
+        }, Error, INPUT_ERROR)
     })
   })
 
@@ -51,13 +48,13 @@ describe('Account', () => {
       account.deposit(99)
       assert.throws(() => {
           account.withdraw(100)
-        }, Error, /Insufficient funds/)
+        }, Error, FUNDS_ERROR)
     })
 
     it('checks that input is a positive number', () => {
       assert.throws(() => {
           account.withdraw('hi')
-        }, Error, /Please enter a postive number/)
+        }, Error, INPUT_ERROR)
     })
   })
 
