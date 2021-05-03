@@ -1,6 +1,6 @@
-const sinon = require('sinon')
-const assert = require('assert')
-const Account = require('../lib/account')
+import sinon from 'sinon'
+import assert from 'assert'
+import Account from '../lib/account.js'
 
 describe('Account', () => {
   let account

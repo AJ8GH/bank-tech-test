@@ -1,6 +1,6 @@
-const assert = require('assert')
-const mockdate = require('mockdate')
-const Transaction = require('../lib/transaction')
+import assert from 'assert'
+import mockdate from 'mockdate'
+import Transaction from '../lib/transaction.js'
 
 describe('Transaction', () => {
   describe('#date', () => {

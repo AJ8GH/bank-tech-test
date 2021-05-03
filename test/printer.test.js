@@ -1,8 +1,8 @@
-const sinon = require('sinon')
-const mockdate = require('mockdate')
-const Printer = require('../lib/printer')
-const Transaction = require('../lib/transaction')
-const assert = require('assert')
+import sinon from 'sinon'
+import mockdate from 'mockdate'
+import Printer from '../lib/printer.js'
+import Transaction from '../lib/transaction.js'
+import assert from 'assert'
 
 describe('Printer', () => {
   let printer
