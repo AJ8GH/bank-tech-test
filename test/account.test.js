@@ -16,10 +16,6 @@ describe('Account', () => {
   })
 
   describe('#balance()', () => {
-    it('is 0 by default', () => {
-      assert.strictEqual(account.balance(), 0)
-    })
-
     it('subtracts the withdrawals', () => {
       const deposit0 = { credit: 100, debit: 0 }
       const deposit1 = { credit: 200, debit: 0 }
