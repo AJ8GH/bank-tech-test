@@ -1,7 +1,7 @@
 import sinon from 'sinon'
 import assert from 'assert'
-import Account from '../lib/account.js'
-import { FUNDS_ERROR, INPUT_ERROR } from '../lib/translations.js'
+import Account from '../lib/Account.js'
+import { FUNDS_ERROR, INPUT_ERROR } from '../lib/translations/English.js'
 
 describe('Account', () => {
   let account
@@ -37,24 +37,18 @@ describe('Account', () => {
 
   describe('#deposit()', () => {
     it('checks that input is a positive number', () => {
-      assert.throws(() => {
-          account.deposit('hi')
-        }, Error, INPUT_ERROR)
+      assert.throws(() => { account.deposit('hi') }, Error, INPUT_ERROR)
     })
   })
 
   describe('#withdraw()', () => {
-    it('throws error when amount > balance', () => {
+    it('throws error when amount exceeds balance', () => {
       account.deposit(99)
-      assert.throws(() => {
-          account.withdraw(100)
-        }, Error, FUNDS_ERROR)
+      assert.throws(() => { account.withdraw(100) }, Error, FUNDS_ERROR)
     })
 
     it('checks that input is a positive number', () => {
-      assert.throws(() => {
-          account.withdraw('hi')
-        }, Error, INPUT_ERROR)
+      assert.throws(() => { account.withdraw('hi') }, Error, INPUT_ERROR)
     })
   })
 

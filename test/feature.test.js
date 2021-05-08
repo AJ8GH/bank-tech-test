@@ -1,7 +1,7 @@
 // const assert = require('assert')
 import mockdate from 'mockdate'
 import sinon from 'sinon'
-import Account from '../lib/account.js'
+import Account from '../lib/Account.js'
 
 describe('Feature tests', () => {
   let account

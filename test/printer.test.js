@@ -1,7 +1,7 @@
 import sinon from 'sinon'
 import mockdate from 'mockdate'
-import Printer from '../lib/printer.js'
-import Transaction from '../lib/transaction.js'
+import Printer from '../lib/Printer.js'
+import Transaction from '../lib/Transaction.js'
 import assert from 'assert'
 
 describe('Printer', () => {
