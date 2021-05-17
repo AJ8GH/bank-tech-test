@@ -1,6 +1,6 @@
 import assert from 'assert'
 import mockdate from 'mockdate'
-import Transaction from '../lib/transaction.js'
+import Transaction from '../lib/Transaction.js'
 
 describe('Transaction', () => {
   describe('#date', () => {
