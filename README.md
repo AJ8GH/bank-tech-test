@@ -3,6 +3,7 @@
 [![AJ8GH](https://circleci.com/gh/AJ8GH/bank-tech-test.svg?style=shield)](https://app.circleci.com/pipelines/github/AJ8GH/bank-tech-test)
 [![AJ8GH](https://circleci.com/gh/AJ8GH/bank-tech-test.svg?style=svg)](https://app.circleci.com/pipelines/github/AJ8GH/bank-tech-test)
 [![Build Status](https://travis-ci.com/AJ8GH/bank-tech-test.svg?branch=main)](https://travis-ci.com/AJ8GH/bank-tech-test)
+[![codecov](https://codecov.io/gh/AJ8GH/bank-tech-test/branch/main/graph/badge.svg?token=8N2ZKMBISL)](https://codecov.io/gh/AJ8GH/bank-tech-test)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4dd8f783b6d062f73efc/maintainability)](https://codeclimate.com/github/AJ8GH/bank-tech-test/maintainability)
 [![BCH compliance](https://bettercodehub.com/edge/badge/AJ8GH/bank-tech-test?branch=main)](https://bettercodehub.com/)
