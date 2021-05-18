@@ -6,6 +6,7 @@
   },
   "scripts": {
     "test": "c8 mocha",
+    "coverage": "c8 report --reporter=text-lcov > coverage.lcov && codecov",
     "lint": "eslint ."
   },
   "nyc": {
