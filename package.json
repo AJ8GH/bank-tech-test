@@ -6,7 +6,6 @@
   },
   "scripts": {
     "test": "c8 mocha",
-    "coverage": "c8 report | coveralls",
     "lint": "eslint ."
   },
   "nyc": {
@@ -27,6 +26,7 @@
   "homepage": "https://github.com/AJ8GH/bank-tech-test#readme",
   "devDependencies": {
     "c8": "^7.7.2",
+    "codecov": "^3.8.2",
     "coveralls": "^3.1.0",
     "eslint": "^7.23.0",
     "eslint-config-standard": "^16.0.2",
